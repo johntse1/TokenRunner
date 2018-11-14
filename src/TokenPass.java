@@ -5,23 +5,47 @@ public class TokenPass
     public TokenPass(int playerCount)
     {
         board = new int[playerCount];
-        this.currentPlayer = (int) (Math.random()-1);
+        currentPlayer = (int) (Math.random()-1);
         for(int i = 0;  i<playerCount; i++)
         {
             board[i] = (int) (Math.random()*10+1);
         }
     }
-    public void distributeCurrentPlayertokens()
+    public void distributeCurrentPlayerTokens()
     {
         int numberOfTokens = board[currentPlayer];
-        for(int j = 0; numberOfTokens < j; j++)
+        for(int j = 0; numberOfTokens > j; j++)
         {
-            currentPlayer += 1;
-            for(int k = 0; numberOfTokens < k; k++)
+            int nextPlayer = currentPlayer;
+            for(int k = 0; numberOfTokens > k; k++)
             {
+                nextPlayer = (nextPlayer +1) % board.length;
                 board[currentPlayer] +=1;
                 numberOfTokens -= 1;
             }
         }
+    }
+    public void printBoard()
+    {
+        for(int i = 0; i< board.length; i++)
+        {
+            System.out.println("[" + board[i] + "]");
+        }
+    }
+    public void nextPlayer()
+    {
+        int nextPlayer = currentPlayer;
+    }
+    public int gameOver()
+    {
+        boolean gameOn = true;
+        while (gameOn)
+        {
+            if (board[currentPlayer] == 0)
+            {
+                gameOn = false;
+            }
+        }
+        return currentPlayer;
     }
 }
