@@ -14,15 +14,10 @@ public class TokenPass
     public void distributeCurrentPlayerTokens()
     {
         int numberOfTokens = board[currentPlayer];
-        for(int j = 0; numberOfTokens > j; j++)
-        {
-            int nextPlayer = currentPlayer;
-            for(int k = 0; numberOfTokens > k; k++)
-            {
-                nextPlayer = (nextPlayer +1) % board.length;
-                board[currentPlayer] +=1;
-                numberOfTokens -= 1;
-            }
+        for(int k = 0; numberOfTokens > k; k++) {
+            nextPlayer();
+            board[currentPlayer] += 1;
+            numberOfTokens -= 1;
         }
     }
     public void printBoard()
@@ -35,6 +30,7 @@ public class TokenPass
     public void nextPlayer()
     {
         int nextPlayer = currentPlayer;
+        nextPlayer = (nextPlayer +1) % board.length;
     }
     public int gameOver()
     {
