@@ -16,7 +16,7 @@ public class TokenPass
         int nextPlayer = currentPlayer;
         int numberOfTokens = board[currentPlayer];
         board[currentPlayer] = 0;
-        for(int k = 0; numberOfTokens > k; k++)
+        while (numberOfTokens > 0)
         {
             nextPlayer = (nextPlayer +1) % board.length;
             board[currentPlayer] ++;
@@ -27,7 +27,7 @@ public class TokenPass
     {
         for(int i = 0; i< board.length; i++)
         {
-            System.out.println(board[i]);
+            System.out.println("player" + i + " " + board[i]);
         }
         System.out.println();
     }
@@ -47,7 +47,6 @@ public class TokenPass
             if(board[i] == 0)
             {
                 loop = i;
-                break;
             }
         }
         return loop;
