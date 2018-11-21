@@ -9,7 +9,7 @@ public class TokenPass
         {
             board[i] = (int) (Math.random()*10)+1;
         }
-        currentPlayer = (int) (playerCount * Math.random());
+        currentPlayer = (int) (playerCount * Math.random()-1);
     }
     public void distributeCurrentPlayerTokens()
     {
@@ -27,7 +27,7 @@ public class TokenPass
     {
         for(int i = 0; i< board.length; i++)
         {
-            System.out.println("player" + i + " " + board[i]);
+            System.out.print("player" + i + ": " + board[i]);
         }
         System.out.println(currentPlayer);
     }
