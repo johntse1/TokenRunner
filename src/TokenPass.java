@@ -9,17 +9,17 @@ public class TokenPass
         {
             board[i] = (int) (Math.random()*10)+1;
         }
-        currentPlayer = (int) (playerCount * Math.random()-1);
+        currentPlayer = (int) (playerCount * Math.random());
     }
     public void distributeCurrentPlayerTokens()
     {
-        int nextPlayer = currentPlayer +1;
+        int nextPlayer = currentPlayer ;
         int numberOfTokens = board[currentPlayer];
         board[currentPlayer] = 0;
         while (numberOfTokens > 0)
         {
             nextPlayer = (nextPlayer+1) % board.length;
-            board[currentPlayer]++;
+            board[nextPlayer]++;
             numberOfTokens--;
         }
     }
@@ -27,7 +27,7 @@ public class TokenPass
     {
         for(int i = 0; i< board.length; i++)
         {
-            System.out.print("player" + i + ": " + board[i]);
+            System.out.print(board[i]+" ");
         }
         System.out.println(currentPlayer);
     }
